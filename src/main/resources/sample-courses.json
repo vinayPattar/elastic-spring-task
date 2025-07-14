@@ -1,0 +1,123 @@
+[
+  {
+    "id": 1,
+    "title": "Mathematics for Beginners",
+    "description": "A basic course designed to introduce young students to fundamental mathematical concepts.",
+    "category": "Math",
+    "type": "COURSE",
+    "gradeRange": "1st-3rd",
+    "minAge": 6,
+    "maxAge": 9,
+    "price": 500.0,
+    "nextSessionDate": "2025-08-01T10:00:00Z"
+  },
+  {
+    "id": 2,
+    "title": "Creative Drawing Workshop",
+    "description": "Helps children express creativity through drawing and painting techniques.",
+    "category": "Art",
+    "type": "ONE_TIME",
+    "gradeRange": "2nd-4th",
+    "minAge": 7,
+    "maxAge": 10,
+    "price": 700.0,
+    "nextSessionDate": "2025-09-10T12:00:00Z"
+  },
+  {
+    "id": 3,
+    "title": "Young Scientists Club",
+    "description": "Weekly club sessions with interactive science experiments and discussions.",
+    "category": "Science",
+    "type": "CLUB",
+    "gradeRange": "3rd-5th",
+    "minAge": 8,
+    "maxAge": 11,
+    "price": 1200.0,
+    "nextSessionDate": "2025-07-20T14:00:00Z"
+  },
+  {
+    "id": 4,
+    "title": "History through Stories",
+    "description": "Engaging course covering major historical events through storytelling.",
+    "category": "Social Studies",
+    "type": "COURSE",
+    "gradeRange": "4th-6th",
+    "minAge": 9,
+    "maxAge": 12,
+    "price": 900.0,
+    "nextSessionDate": "2025-10-01T09:00:00Z"
+  },
+  {
+    "id": 5,
+    "title": "Introduction to Robotics",
+    "description": "Learn the basics of robotics with simple, hands-on projects.",
+    "category": "Technology",
+    "type": "COURSE",
+    "gradeRange": "5th-7th",
+    "minAge": 10,
+    "maxAge": 13,
+    "price": 2000.0,
+    "nextSessionDate": "2025-08-15T11:00:00Z"
+  },
+  {
+    "id": 6,
+    "title": "Coding Bootcamp for Kids",
+    "description": "A beginner-level coding camp focusing on logic and programming fundamentals.",
+    "category": "Technology",
+    "type": "ONE_TIME",
+    "gradeRange": "6th-8th",
+    "minAge": 11,
+    "maxAge": 14,
+    "price": 2500.0,
+    "nextSessionDate": "2025-08-20T10:00:00Z"
+  },
+  {
+    "id": 7,
+    "title": "Advanced Math Challenge",
+    "description": "Challenge your math skills with problem-solving sessions and puzzles.",
+    "category": "Math",
+    "type": "COURSE",
+    "gradeRange": "6th-8th",
+    "minAge": 11,
+    "maxAge": 14,
+    "price": 1500.0,
+    "nextSessionDate": "2025-09-05T14:00:00Z"
+  },
+  {
+    "id": 8,
+    "title": "Public Speaking for Kids",
+    "description": "A course to improve confidence and communication through public speaking practice.",
+    "category": "Communication",
+    "type": "COURSE",
+    "gradeRange": "5th-7th",
+    "minAge": 10,
+    "maxAge": 13,
+    "price": 1300.0,
+    "nextSessionDate": "2025-09-25T12:00:00Z"
+  },
+  {
+    "id": 9,
+    "title": "Photography Basics",
+    "description": "Teaching children the fundamentals of photography using simple equipment.",
+    "category": "Art",
+    "type": "ONE_TIME",
+    "gradeRange": "4th-6th",
+    "minAge": 9,
+    "maxAge": 12,
+    "price": 800.0,
+    "nextSessionDate": "2025-09-12T13:00:00Z"
+  },
+  {
+    "id": 10,
+    "title": "Nature Explorers Club",
+    "description": "A club for kids interested in nature, environment, and wildlife observation.",
+    "category": "Science",
+    "type": "CLUB",
+    "gradeRange": "3rd-5th",
+    "minAge": 8,
+    "maxAge": 11,
+    "price": 1000.0,
+    "nextSessionDate": "2025-09-18T15:00:00Z"
+  }
+
+]
