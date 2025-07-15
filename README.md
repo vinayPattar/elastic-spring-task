@@ -11,3 +11,35 @@ A modern, searchable Course Catalog built with Spring Boot & Elasticsearch for f
 ✨ Autocomplete Suggestions
 
 🐛 Fuzzy Search (typo-tolerant)
+
+# Launch Elasticsearch
+📂 Docker Compose Setup
+
+version: '3.1'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.15
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+    networks:
+      - elastic
+networks:
+  elastic:
+    driver: bridge
+
+# Run Elasticsearch
+docker-compose up -d
+
+# Verify Elasticsearch
+curl http://localhost:9200
+
+# Populate Sample Data
+src/main/resources/sample-courses.json
+
+# Auto-indexed on startup to course index.
+Verify with:
+curl http://localhost:9200/course/_count
