@@ -1,4 +1,4 @@
-# 📚 Spring Boot + Elasticsearch Course Search App
+# Spring Boot + Elasticsearch Course Search App
 A modern, searchable Course Catalog built with Spring Boot & Elasticsearch for full-text search, filtering, pagination, autocomplete suggestions, and fuzzy search.
 
 🚀 Features
@@ -40,6 +40,28 @@ curl http://localhost:9200
 # Populate Sample Data
 src/main/resources/sample-courses.json
 
-# Auto-indexed on startup to course index.
+Auto-indexed on startup to course index.
 Verify with:
 curl http://localhost:9200/course/_count
+
+# API Endpoints (with Examples)
+Base URL
+http://localhost:8080/api/search
+
+# Search Courses
+sql
+Copy
+Edit
+GET /api/search
+Param	Purpose
+q	Full-text keyword
+minAge	Min age filter
+maxAge	Max age filter
+category	Category filter
+type	ONE_TIME, COURSE, CLUB
+minPrice	Min price
+maxPrice	Max price
+startDate	Date after filter
+sort	upcoming, priceAsc, priceDesc
+page	Page number (default 0)
+size	Page size (default 10)
