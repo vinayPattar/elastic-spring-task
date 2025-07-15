@@ -2,6 +2,9 @@ package com.elastic.springelastic.service;
 
 import com.elastic.springelastic.model.CourseDocument;
 import com.elastic.springelastic.repo.CourseRepo;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -44,4 +47,10 @@ public class CourseService {
     public Iterable<CourseDocument> getAllCourses() {
         return repo.findAll();
     }
+
+    public Page<CourseDocument> searchCourses(String keyword, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return repo.findByTitleContainingOrDescriptionContaining(keyword, keyword, keyword,keyword, pageable);
+    }
+
 }
