@@ -1,13 +1,13 @@
-📄 Overview
-A Spring Boot application integrated with Elasticsearch for searching, filtering, and retrieving course data.
-Features include:
+# 📚 Spring Boot + Elasticsearch Course Search App
+A modern, searchable Course Catalog built with Spring Boot & Elasticsearch for full-text search, filtering, pagination, autocomplete suggestions, and fuzzy search.
 
-Full-text search on course titles and descriptions.
+🚀 Features
+🔍 Full-text search on title and description
 
-Filters by category, type, price, age range, and date.
+🎯 Filters for category, type, age range, price, and date
 
-Pagination and sorting.
+🔄 Pagination & Sorting
 
-Autocomplete suggestions.
+✨ Autocomplete Suggestions
 
-Fuzzy search for typo tolerance.
+🐛 Fuzzy Search (typo-tolerant)
