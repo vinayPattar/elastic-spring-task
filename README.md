@@ -46,17 +46,6 @@ curl http://localhost:9200
 
 ---
 
-## ⚙️ 2️⃣ Build & Run Spring Boot App
-```bash
-./mvnw clean package
-java -jar target/elastic-spring-task-0.0.1-SNAPSHOT.jar
-```
-
-or for dev:
-```bash
-./mvnw spring-boot:run
-```
-
 ---
 
 ## 📥 3️⃣ Populate Sample Data
@@ -77,12 +66,12 @@ curl http://localhost:9200/course/_count
 
 ### Base URL
 ```http
-http://localhost:8080/api/search
+http://localhost:8080/course
 ```
 
 ### 🔎 Search Courses
 ```
-GET /api/search
+GET /course/search?params
 ```
 
 | Param    | Purpose           |
@@ -108,40 +97,45 @@ curl "http://localhost:8080/api/search?q=science&minAge=5&maxPrice=50&page=0&siz
 
 ### ✨ Autocomplete Suggestions
 ```
-GET /api/search/suggest?q={partialTitle}
+GET /course/search?q={keyword}&minAge=5&maxPrice=50&page=0&size=5&sort=priceAsc
 ```
 
 **Example:**
 ```bash
-curl "http://localhost:8080/api/search/suggest?q=phy"
+curl "http://localhost:8080/course/search?q=sci&minAge=5&maxPrice=50&page=0&size=5&sort=priceAsc"
 ```
 
 Response:
 ```json
-["Physics for Kids", "Physics Basics"]
+["Young Scientists Club"]
 ```
 
 ---
 
 ### 🐛 Fuzzy Search (Typo-Friendly)
 ```
-GET /api/search/fuzzy?q={keywordWithTypos}
+GET course/search?q=sci&minAge=5&maxPrice=50&page=0&size=5&sort=priceAsc
 ```
 
 **Example:**
 ```bash
-curl "http://localhost:8080/api/search/fuzzy?q=dinors"
+curl "http://localhost:8080/course/search?q=scence&minAge=5&maxPrice=50&page=0&size=5&sort=priceAsc"
 ```
 
 Response:
 ```json
 [
   {
-    "id": 12,
-    "title": "Dinosaurs 101",
+    "id": 3,
+    "title": "Young Scientists Club",
+    "description": "Weekly club sessions with interactive science experiments and discussions.",
     "category": "Science",
-    "price": 49.99,
-    "nextSessionDate": "2025-06-01T10:00:00Z"
+    "type": "CLUB",
+    "gradeRange": "3rd-5th",
+    "minAge": 8,
+    "maxAge": 11,
+    "price": 1200.0,
+    "nextSessionDate": "2025-07-20T14:00:00Z"
   }
 ]
 ```
@@ -150,11 +144,12 @@ Response:
 
 ## 🏗️ Project Structure
 ```
-├── config          # Elasticsearch Configuration
+├── util            # Logic to load the resource data at the starting
 ├── controller      # REST Controllers
-├── document        # Elasticsearch Document Models
+├── model           # Elasticsearch Document Models
 ├── repository      # Spring Data Elasticsearch Repositories
-├── service         # Business Logic
+├── service         # Business Logic to handle REST controllers and Search controls
+├── Dto             # Structured response to the search query
 └── resources
     └── sample-courses.json
 ```
@@ -166,16 +161,15 @@ Response:
 # 1️⃣ Start Elasticsearch
 docker-compose up -d
 
-# 2️⃣ Run the app
-./mvnw spring-boot:run
-
 # 3️⃣ Confirm index
 curl http://localhost:9200/course/_count
 
 # 4️⃣ Test endpoints
-curl http://localhost:8080/api/search?q=science
-curl http://localhost:8080/api/search/suggest?q=phy
-curl http://localhost:8080/api/search/fuzzy?q=dinors
+curl http://localhost:8080/course/search?q=scence&minAge=5&maxPrice=1500&category=&sort=priceAsc&page=0&size=10
+curl http://localhost:8080/course/search?q=scence&minAge=5&maxPrice=1500&category=&sort=priceAsc&page=1&size=5
+curl http://localhost:8080/course/add-course
+curl http://localhost:8080/course/update-course
+curl http://localhost:8080/course/delete-course
 ```
 
 ---
@@ -192,8 +186,3 @@ curl http://localhost:8080/api/search/fuzzy?q=dinors
 
 ---
 
-### 🏷️ Badges
-![Java](https://img.shields.io/badge/Java-17+-brightgreen?style=for-the-badge&logo=java)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?style=for-the-badge&logo=spring-boot)
-![Elasticsearch](https://img.shields.io/badge/Elasticsearch-7.x-blue?style=for-the-badge&logo=elasticsearch)
-![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
